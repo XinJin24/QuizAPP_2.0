@@ -33,6 +33,7 @@
                 android:textStyle="italic" />
 
             <EditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -269,42 +270,43 @@ Bayes’ theorem to compute the probability that the person is a boy." />
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"
-            android:text="How many numbers less than 11 are relatively prime to 11?" />
+            android:text="(Multiple Choices)Select two numbers which are their own inverse modulo 11?" />
 
-        <RadioGroup
-            android:id="@+id/question4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/q4_a_true"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <CheckBox
+                android:id="@+id/q4_A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:text="(A) 10" />
-
-            <RadioButton
-                android:id="@+id/q4_b_wrong"
+                android:text="(A) 11"
+                />
+            <CheckBox
+                android:id="@+id/q4_B"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:text="(B) 8" />
-
-            <RadioButton
-                android:id="@+id/q4_c_wrong"
+                android:text="(B) 1"
+               />
+            <CheckBox
+                android:id="@+id/q4_C"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:text="(C) 7" />
-
-            <RadioButton
-                android:id="@+id/q4_d_wrong"
+                android:text="(C) 12"
+                />
+            <CheckBox
+                android:id="@+id/q4_D"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:text="(D) 9" />
-        </RadioGroup>
+                android:text="(D) 23"
+                />
+
+        </LinearLayout>
+
 
         /**
         *
@@ -332,41 +334,16 @@ Bayes’ theorem to compute the probability that the person is a boy." />
 Philadelphia Sportsteam. What is the probability that New York will win exactly
 five out of the next seven sportsball games?
 " />
-
-        <RadioGroup
-            android:id="@+id/question5"
+        <EditText
+            android:id="@+id/q5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/q5_a_true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="(A) 30.7%" />
-
-            <RadioButton
-                android:id="@+id/q5_b_wrong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="(B) 51.2%" />
-
-            <RadioButton
-                android:id="@+id/q5_c_wrong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="(C) 39.9%" />
-
-            <RadioButton
-                android:id="@+id/q5_d_wrong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="(D) 28.8%" />
-        </RadioGroup>
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@id/nameText"
+            android:inputType="numberDecimal"
+            android:hint="answer in decimal form:"
+            />
 
         <Button
             android:layout_width="wrap_content"

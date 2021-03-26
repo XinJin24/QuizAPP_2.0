@@ -6,6 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -14,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     int grade = 0;
     char user_allAnswer[] = new char[5];
-    char[] rightAnswer = {'D', 'D', 'B', 'A', 'A'};
+    char[] rightAnswer = {'D', 'D', 'B', 'T', 'T'};
 
 
     @Override
@@ -56,24 +58,31 @@ public class MainActivity extends AppCompatActivity {
 
 
         // get question 4 answer
-        RadioGroup q4 = (RadioGroup) findViewById(R.id.question4);
-        RadioButton q4_check = (RadioButton) findViewById(q4.getCheckedRadioButtonId());
-        if (q4.getCheckedRadioButtonId() == -1) {
-            user_allAnswer[3] = 'X';
+        CheckBox q4_a = (CheckBox) findViewById(R.id.q4_A);
+        CheckBox q4_b = (CheckBox) findViewById(R.id.q4_B);
+        CheckBox q4_c = (CheckBox) findViewById(R.id.q4_C);
+        CheckBox q4_d = (CheckBox) findViewById(R.id.q4_D);
+        boolean A = q4_a.isChecked();
+        boolean B = q4_b.isChecked();
+        boolean C = q4_c.isChecked();
+        boolean D = q4_d.isChecked();
+        if ((C == true && D == true) && A == false && B == false) {
+            user_allAnswer[3] = 'T';
         } else {
-            char q4_userAnswer = q4_check.getText().charAt(1);
-            user_allAnswer[3] = q4_userAnswer;
-
+            user_allAnswer[3] = 'F';
         }
 
+
         // get question 5 answer
-        RadioGroup q5 = (RadioGroup) findViewById(R.id.question5);
-        RadioButton q5_check = (RadioButton) findViewById(q5.getCheckedRadioButtonId());
-        if (q5.getCheckedRadioButtonId() == -1) {
-            user_allAnswer[4] = 'X';
-        } else {
-            char q5_userAnswer = q5_check.getText().charAt(1);
-            user_allAnswer[4] = q5_userAnswer;
+        EditText q5 = (EditText) findViewById(R.id.q5);
+        String answer=String.valueOf(q5.getText());
+        if(answer.equals("30.7"))
+        {
+            user_allAnswer[4]='T';
+        }
+        else
+        {
+            user_allAnswer[4] = 'F';
         }
     }
 
@@ -94,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
         int finalGrade=grade;
         grade=0;
         Context context = getApplicationContext();
-        CharSequence text = "Total Scores: "+finalGrade;
+        EditText name=(EditText)findViewById(R.id.name);
+        String fullname=String.valueOf(name.getText());
+        CharSequence text = "Name: "+fullname +"\n"+ "Total Scores: "+finalGrade;
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
